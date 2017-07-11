@@ -1,5 +1,5 @@
 ---
-- host: database
+- hosts: database
   tasks:
     - name: install mysql-sever
       apt:

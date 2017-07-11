@@ -1,0 +1,12 @@
+[loadbalancer]
+172.31.5.208 ansible_ssh_private_key_file=../.ssh/id_dsa ansible_user=ansible-admin ansible_become=true
+
+[webserver]
+172.31.4.165 ansible_ssh_private_key_file=../.ssh/id_dsa ansible_user=ansible-admin ansible_become=true
+172.31.2.44 ansible_ssh_private_key_file=../.ssh/id_dsa ansible_user=ansible-admin ansible_become=true
+
+[database]
+172.31.11.173 ansible_ssh_private_key_file=../.ssh/id_dsa ansible_user=ansible-admin ansible_become=true
+
+[control]
+172.31.9.81 ansible_connection=local

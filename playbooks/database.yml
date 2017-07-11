@@ -1,0 +1,8 @@
+---
+- host: database
+  tasks:
+    - name: install mysql-sever
+      apt:
+        name=mysql-sever
+        state=present
+        update_cache=yes

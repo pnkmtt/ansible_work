@@ -10,5 +10,5 @@
         with_items:
             - apache2
             - libapache2-mod-wsgi
-            - pythin-pip
+            - python-pip
             - python-virtualenv

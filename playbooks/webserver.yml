@@ -20,6 +20,14 @@
           enabled=yes
 
       - name: ensure mod_wsgi enabled
-       apache2_module:
-         state=present
-         name=wsgi
+        apache2_module:
+          state=present
+          name=wsgi
+        notify:
+          restart apache2
+
+    handlers:
+      - name: restart apache2
+        service:
+          name=apache2
+          state=restarted

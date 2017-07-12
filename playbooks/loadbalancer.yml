@@ -16,7 +16,7 @@
 
     - name: configure nginx sites
       template:
-        src=../templates/nginx.conf
+        src=../templates/nginx.conf.j2
         dest=/etc/nginx/sites-available/demo
         mode=0644
       notify: restart nginx

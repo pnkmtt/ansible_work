@@ -7,3 +7,7 @@
         name=mysql-server
         state=present
         update_cache=yes
+      service:
+        name=mysql
+        state=started
+        enabled=yes

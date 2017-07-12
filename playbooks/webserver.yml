@@ -2,7 +2,7 @@
   - hosts: webserver
     become: true
     tasks:
-      - name: install_apache2
+      - name: install web compoents
         apt:
           name={{item}}
           state=present

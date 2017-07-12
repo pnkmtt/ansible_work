@@ -42,6 +42,13 @@
         notify:
           restart apache2
 
+      - name: set up python virtual enviroment
+        pip:
+          requirements=/var/www/demo/requirements.txt
+          virtualenv=/var/www/demo/.venv
+        notify:
+          restart apache2
+
     handlers:
       - name: restart apache2
         service:

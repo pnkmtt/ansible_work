@@ -26,6 +26,14 @@
         notify:
           restart apache2
 
+      - name: copy demo app source
+        copy:
+          src=demo/app
+          dest=/var/www/html
+          mode=0755
+        notify:
+          restart apache2
+
     handlers:
       - name: restart apache2
         service:

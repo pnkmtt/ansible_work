@@ -28,12 +28,20 @@
 
       - name: copy demo app source
         copy:
-          src=demo/app
-          dest=/var/www/html
+          src=./demo/app/
+          dest=/var/www/demo
           mode=0755
         notify:
           restart apache2
 
+      - name: copy apache 2 configuration file
+        copy:
+          src=./demo/demo.conf
+          dest=/etc/apache2/sites-available
+          mode=0755
+          notify:
+            restart apache2
+            
     handlers:
       - name: restart apache2
         service:

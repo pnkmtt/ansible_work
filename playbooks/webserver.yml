@@ -39,9 +39,9 @@
           src=./demo/demo.conf
           dest=/etc/apache2/sites-available
           mode=0755
-          notify:
-            restart apache2
-            
+        notify:
+          restart apache2
+
     handlers:
       - name: restart apache2
         service:

@@ -15,7 +15,7 @@
         enabled=yes
 
     - name: configure nginx sites
-      templates:
+      template:
         src=../templates/nginx.conf
         dest=/etc/nginx/sites-available/demo
         mode=0644

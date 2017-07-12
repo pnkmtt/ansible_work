@@ -1,11 +1,11 @@
 ---
-- hosts: control
-  become: true
-  tasks:
-    - name: install curl
-      yum:
-        name={{items}}
-        state=present
-        update_cache=yes
-      with_tems:
-        - curl
+  - hosts: control
+    become: true
+    tasks:
+      - name: install curl
+        yum:
+          name={{items}}
+          state=present
+          update_cache=yes
+        with_tems:
+          - curl

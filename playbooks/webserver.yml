@@ -28,7 +28,7 @@
 
       - name: copy demo app source
         copy:
-          src=demo/app/
+          src=../demo/app/
           dest=/var/www/demo
           mode=0755
         notify:
@@ -36,7 +36,7 @@
 
       - name: copy apache 2 configuration file
         copy:
-          src=demo/demo.conf
+          src=../demo/demo.conf
           dest=/etc/apache2/sites-available
           mode=0755
         notify:

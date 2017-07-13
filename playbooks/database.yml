@@ -23,6 +23,6 @@
 
     handlers:
       - name: restart mysql
-        services:
+        service:
           name=mysql
           state=restarted

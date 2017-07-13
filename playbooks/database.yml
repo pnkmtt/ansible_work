@@ -19,10 +19,10 @@
         dest=/etc/mysql/my.conf
         regexp=^bind-address
         line="bind-addresss = 0.0.0.0"
-        notify= restart mysql
+      notify: restart mysql
 
     handlers:
       - name: restart mysql
         services:
           name=mysql
-          state=restarted    
+          state=restarted

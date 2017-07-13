@@ -7,8 +7,22 @@
         name=mysql-server
         state=present
         update_cache=yes
+
     - name: ensure mysql is started
       service:
         name=mysql
         state=started
         enabled=yes
+
+    - name: ensure mysql listening on all ports
+      lineinfile:
+        dest=/etc/mysql/my.conf
+        regexp=^bind-address
+        line="bind-addresss = 0.0.0.0"
+        notify= restart mysql
+
+    handlers:
+      - name: restart mysql
+        services:
+          name=mysql
+          state=restarted    

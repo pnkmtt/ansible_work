@@ -21,8 +21,8 @@
         line="bind-addresss = 0.0.0.0"
       notify: restart mysql
 
-    handlers:
-      - name: restart mysql
-        service:
-          name=mysql
-          state=restarted
+  handlers:
+    - name: restart mysql
+      service:
+        name=mysql
+        state=restarted

@@ -33,7 +33,7 @@
         state=present
 
     - name: create demo user
-      mysql-server:
+      mysql_user:
         name=demo
         password=demo
         priv=demo.*:ALL

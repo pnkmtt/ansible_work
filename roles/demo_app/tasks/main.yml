@@ -4,29 +4,22 @@
   apt:
     name={{item}}
   with_items:
-    - apache2
-    - libapache2-mod-wsgi
     - python-pip
     - python-virtualenv
     - python-mysqldb
-
-- name: ensure apache2 is started
-  service:
-    name=apache2
-    state=started
-    enabled=yes
-
-- name: ensure mod_wsgi enabled
-  apache2_module:
-    state=present
-    name=wsgi
-  notify:
-    restart apache2
 
 - name: copy demo app source
   copy:
     src=demo/app/
     dest=/var/www/demo
+    mode=0755
+  notify:
+    restart apache2
+
+- name: copy demo.wsgi
+  copy:
+    src=demo.wsgi.j2
+    dest=/var/www/demo/demo.wsgi
     mode=0755
   notify:
     restart apache2
@@ -43,13 +36,6 @@
   pip:
     requirements=/var/www/demo/requirements.txt
     virtualenv=/var/www/demo/.venv
-  notify:
-    restart apache2
-
-- name: deactivate default apache site
-  file:
-    path=/etc/apache2/sites-enabled/000-default.conf
-    state=absent
   notify:
     restart apache2
 

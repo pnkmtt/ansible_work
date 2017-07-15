@@ -39,7 +39,7 @@
           url=http://{{item}}
           return_content=yes
         with_items:
-          "{{groups.loadbalancer}}"
+          - "{{groups.loadbalancer}}"
         register:
           lb_index
 
@@ -48,7 +48,7 @@
         when:
           "'Hello, from sunny' not in item.content"
         with_items:
-          "{{lb_index.results}}"
+          - "{{lb_index.results}}"
 
   - hosts: loadbalancer
     tasks:
@@ -57,7 +57,7 @@
           url=http://{{item}}
           return_content=yes
         with_items:
-          "{{groups.webserver}}"
+          - "{{groups.webserver}}"
         register:
           app_index
 
@@ -66,4 +66,4 @@
         when:
           "'Hello, from sunny {{item.item}}' not in item.content"
         with_items:
-          "{{app_index.results}}"
+          - "{{app_index.results}}"

@@ -2,6 +2,6 @@
 - hosts: database
   become: true
   roles: mysql
-    db_user_name: "{{ db_user }}"
-    db_user_pass: "{{ db_pass }}"
+    db_user_name: {{ db_user }}
+    db_user_pass: {{ db_pass }}
     db_user_host: '%'

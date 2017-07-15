@@ -2,14 +2,17 @@
   - hosts: loadbalancer
     become: true
     tasks:
-      command: service nginx status
+      - name: verify nginx status
+        command: service nginx status
 
   - hosts: webserver
     become: true
     tasks:
-      command: service apache2 status
+      - name: verify apache2 status
+        command: service apache2 status
 
   - hosts: database
     become: true
     tasks:
-      command: service mysql status
+      - name: verify mysql status
+        command: service mysql status

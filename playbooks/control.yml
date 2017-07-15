@@ -1,5 +1,5 @@
 ---
   - hosts: control
     become: true
-    role:
+    roles:
       - control

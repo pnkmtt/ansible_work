@@ -10,7 +10,6 @@
       - wait_for:
           port=80
           state=drained
-          
 
 # kill webservers
   - hosts: webserver
@@ -21,7 +20,7 @@
           state=stopped
       - wait_for:
           port=80
-          status=stopped
+          state=stopped
 
 # restart mysql-server
   - hosts: database
@@ -44,6 +43,7 @@
           state=started
       - wait_for:
           port=80
+          state=started
 
 
 # start load balancer
@@ -55,3 +55,4 @@
           state=started
       - wait_for:
           port=80
+          state=started

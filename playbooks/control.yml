@@ -9,3 +9,4 @@
           update_cache=yes
         with_items:
           - curl
+          - python-httplib2

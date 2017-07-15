@@ -31,7 +31,7 @@
         wait_for:
           port=3306
           timeout=1
-          
+
   - hosts: control
     tasks:
       - name : verify end to end response
@@ -39,7 +39,7 @@
           url=http://{{item}}
           return_content=yes
         with_items:
-          groups.loadbalancer
+          "{{groups.loadbalancer}}"
         register:
           lb_index
 
@@ -57,7 +57,7 @@
           url=http://{{item}}
           return_content=yes
         with_items:
-          groups.webserver
+          "{{groups.webserver}}"
         register:
           app_index
 

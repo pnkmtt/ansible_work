@@ -46,7 +46,7 @@
       - fail:
           msg="index failed to return content"
         when:
-          "'Hello, from sunny' no in item.content"
+          "'Hello, from sunny' not in item.content"
         with_items:
           "{{lb_index.results}}"
 
@@ -64,6 +64,6 @@
       - fail:
           msg="index failed to return content"
         when:
-          "'Hello, from sunny {{item.item}}' no in item.content"
+          "'Hello, from sunny {{item.item}}' not in item.content"
         with_items:
           "{{app_index.results}}"

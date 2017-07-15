@@ -1,0 +1,15 @@
+---
+- hosts: loadbalancer
+  become: true
+  tasks:
+    command: service nginx status
+
+- hosts: webserver
+  become: true
+  tasks:
+    command: service apache2 status
+
+- hosts: database
+  become: true
+  tasks:
+    command: service mysql status

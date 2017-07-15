@@ -19,7 +19,7 @@
         dest=/etc/nginx/sites-available/{{ item.key }}
         mode=0644
       with_dict:
-        "{{ sites }}""
+        - "{{ sites }}""
       notify: restart nginx
 
     - name: deactivate default nginx site
@@ -35,7 +35,7 @@
         dest=/etc/nginx/sites-enabled/{{ item.key }}
         state=link
       with_dict:
-        "{{ sites }}""
+        - "{{ sites }}""
       notify:
         restart nginx
 

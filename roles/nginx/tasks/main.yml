@@ -29,7 +29,7 @@
       notify:
         restart nginx
 
-    - name: activate demo nginx site
+    - name: activate nginx site
       file:
         src=/etc/nginx/sites-available/{{ item.key }}
         dest=/etc/nginx/sites-enabled/{{ item.key }}

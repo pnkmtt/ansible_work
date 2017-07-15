@@ -18,7 +18,7 @@
 
 - name: copy demo.wsgi
   copy:
-    src=demo.wsgi.j2
+    template=demo.wsgi.j2
     dest=/var/www/demo/demo.wsgi
     mode=0755
   notify:

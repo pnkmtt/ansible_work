@@ -1,11 +1,6 @@
 ---
+# load balancer configure
 - hosts: loadbalancer
   become: true
-  tasks:
-
-
-  handlers:
-    - name: restart nginx
-      service:
-        name=nginx
-        state=restarted
+  roles:
+    nginx

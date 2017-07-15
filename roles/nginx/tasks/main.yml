@@ -29,8 +29,9 @@
       file:
         path=/etc/nginx/sites-enabled/{{ item }}
         state=absent
+      # must have the "{{}}" syntax for 2.0
       with_items: "{{active.stdout_lines}}"
-      # if we did not define this in sites key remove it
+      # if we did not define this in sites dict remove it
       when: item not in sites
       notify:
         restart nginx

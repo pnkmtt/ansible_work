@@ -29,9 +29,9 @@
       file:
         path=/etc/nginx/sites-enabled/{{ item }}
         state=absent
-      with_items: active.stdout_linesA
+      with_items: active.stdout_lines
       # if we did not define this in sites key remove it
-      when: item is not in sites
+      when: item is not in "{{ sites }}"
       notify:
         restart nginx
 
